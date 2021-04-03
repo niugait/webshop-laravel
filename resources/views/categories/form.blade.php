@@ -9,8 +9,13 @@
 
                     <div class="card-body">
                         <category-form
-                            route="{{ route('category-store') }}"
                             csrf="{{ csrf_token() }}"
+                            @if(isset($category))
+                            :category="{{ $category }}"
+                            route="{{ route('category-update', $category->id) }}"
+                            @else
+                            route="{{ route('category-store') }}"
+                            @endif
                         ></category-form>
                     </div>
                 </div>

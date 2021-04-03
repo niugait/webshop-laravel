@@ -27,6 +27,9 @@ Route::group([
     Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories');
     Route::get('/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('category-create');
     Route::post('/create', [App\Http\Controllers\CategoryController::class, 'store'])->name('category-store');
+    Route::get('/edit/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('category-edit');
+    Route::put('/edit/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('category-update');
+    Route::delete('/delete/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('category-delete');
 });
 
 
