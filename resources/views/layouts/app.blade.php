@@ -31,6 +31,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                @if(Auth::check() && Auth::user()->is_admin)
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
@@ -42,8 +43,17 @@
                                 <a class="dropdown-item" href="{{ route('category-create') }}">{{ __('New category') }}</a>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdownProduct" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('Products') }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProduct">
+                                <a class="dropdown-item" href="{{ route('products') }}">{{ __('List products') }}</a>
+                                <a class="dropdown-item" href="{{ route('product-create') }}">{{ __('New product') }}</a>
+                            </div>
+                        </li>
                     </ul>
-
+                @endif
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
