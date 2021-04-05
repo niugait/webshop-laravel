@@ -8,6 +8,11 @@
                     <div class="card-header">{{ __('Categories') }}</div>
 
                     <div class="card-body">
+                        @if($categories->isEmpty())
+                            <div class="alert alert-info" role="alert">
+                                There are no categories available.
+                            </div>
+                        @else
                         <table class="table table-hover" aria-describedby="categoriesList">
                             <thead>
                                 <tr>
@@ -37,6 +42,7 @@
                             @endforeach
                             </tbody>
                         </table>
+                        @endif
                     </div>
                 </div>
             </div>

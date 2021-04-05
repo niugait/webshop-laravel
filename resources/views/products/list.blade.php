@@ -8,6 +8,11 @@
                     <div class="card-header">{{ __('Products') }}</div>
 
                     <div class="card-body">
+                        @if($products->isEmpty())
+                            <div class="alert alert-info" role="alert">
+                                There are no products available.
+                            </div>
+                        @else
                         <div class="card-columns">
                             @foreach($products as $product)
                             <div class="card">
@@ -25,12 +30,8 @@
                                 </div>
                             </div>
                             @endforeach
-                            @if($products->isEmpty())
-                                <div class="alert alert-info" role="alert">
-                                    There are no products available.
-                                </div>
-                            @endif
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
