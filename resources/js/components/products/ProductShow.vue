@@ -25,7 +25,8 @@
                 <money v-if="coupon_applied" v-model="discount_applied" v-bind="money" class="card-text border-0" readonly></money>
             </div>
         </div>
-        <div class="card-footer">
+        <div class="card-footer d-flex justify-content-between">
+            <small class="text-muted">Category: {{ product.category.name }}</small>
             <small class="text-muted">{{ product.in_stock }} left</small>
         </div>
     </div>

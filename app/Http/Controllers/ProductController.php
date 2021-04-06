@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index(): View
     {
         return view('products.list', [
-            'products' => Product::all()
+            'products' => Product::all()->loadMissing('category')
         ]);
     }
 
