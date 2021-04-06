@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+const AUTH_ADMIN_PATH = 'auth.admin';
 const CREATE_PATH = '/create';
 const EDIT_PATH = '/edit/{id}';
 const DELETE_PATH = '/delete/{id}';
@@ -21,10 +23,11 @@ Route::redirect('/', 'products');
 
 Auth::routes();
 
+Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
 Route::group([
     'prefix' => 'products',
+    'middleware' => AUTH_ADMIN_PATH,
 ], function () {
-    Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
     Route::get(CREATE_PATH, [App\Http\Controllers\ProductController::class, 'create'])->name('product-create');
     Route::post(CREATE_PATH, [App\Http\Controllers\ProductController::class, 'store'])->name('product-store');
     Route::get(EDIT_PATH, [App\Http\Controllers\ProductController::class, 'edit'])->name('product-edit');
@@ -34,7 +37,7 @@ Route::group([
 
 Route::group([
     'prefix' => 'categories',
-    'middleware' => 'auth.admin',
+    'middleware' => AUTH_ADMIN_PATH,
 ], function () {
     Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories');
     Route::get(CREATE_PATH, [App\Http\Controllers\CategoryController::class, 'create'])->name('category-create');
@@ -46,7 +49,7 @@ Route::group([
 
 Route::group([
     'prefix' => 'coupons',
-    'middleware' => 'auth.admin',
+    'middleware' => AUTH_ADMIN_PATH,
 ], function () {
     Route::get('/', [App\Http\Controllers\CouponController::class, 'index'])->name('coupons');
     Route::get(CREATE_PATH, [App\Http\Controllers\CouponController::class, 'create'])->name('coupon-create');
