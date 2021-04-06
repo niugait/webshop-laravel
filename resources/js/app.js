@@ -1,4 +1,6 @@
 import money from 'v-money'
+import VCalendar from 'v-calendar'
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -26,7 +28,8 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.use(money, { precision: 2})
+Vue.use(money, { precision: 2 })
+Vue.use(VCalendar, { componentPrefix: 'vc' });
 
 const app = new Vue({
     el: '#app',
