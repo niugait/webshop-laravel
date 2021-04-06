@@ -39,7 +39,7 @@
                     v-if="expires"
                     v-model="form.expires_at"
                     :model-config="modelConfig"
-                    :min-date='new Date()'
+                    :min-date='minDate'
                     class="form-control"
                 />
                 <input type="hidden" id="expires_at" name="expires_at" :value="form.expires_at">
@@ -114,6 +114,10 @@ export default {
         },
         percentage: function () {
             return this.form.is_percentage
+        },
+        minDate: function () {
+            let date = new Date()
+            return date.setDate(date.getDate() + 1)
         }
     },
     watch: {

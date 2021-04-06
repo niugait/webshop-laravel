@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="card-footer d-flex justify-content-between">
-            <small class="text-muted">Category: {{ product.category.name }}</small>
+            <small v-if="product.category" class="text-muted">Category: {{ product.category.name }}</small>
             <small class="text-muted">{{ product.in_stock }} left</small>
         </div>
     </div>
