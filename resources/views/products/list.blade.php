@@ -7,9 +7,9 @@
                 <product-list
                     :products="{{ $products }}"
                     :is_admin="{{ json_encode(Auth::check() && Auth::user()->is_admin) }}"
-                    route_update="{{ route('product-update', '') }}"
-                    route_show="{{ route('product', '') }}"
-                    coupon_route="{{ route('coupon-check', '') }}"
+                    route_update="{{ route('products.edit', '#') }}"
+                    route_show="{{ route('products.show', '') }}"
+                    coupon_route="{{ route('coupons.check', '') }}"
                     csrf="{{ csrf_token() }}"
                 ></product-list>
             </div>

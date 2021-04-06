@@ -27,10 +27,10 @@
                                     <th scope="row">{{ $category->id }}</th>
                                     <td>{{ $category->name }}</td>
                                     <td class="d-inline-flex float-right">
-                                        <a href="{{ route('category-edit', $category->id) }}" class="btn btn-warning">
+                                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">
                                             Edit
                                         </a>
-                                        <form action="{{ route('category-delete', $category->id) }}" method="POST">
+                                        <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
                                             <input type="hidden" name="_method" value="DELETE">
                                             @csrf
                                             <button type="submit" class="btn btn-outline-danger ml-4">

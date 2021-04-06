@@ -34,7 +34,7 @@ class CategoryController extends Controller
         $category->fill($request->all());
         $category->save();
 
-        return redirect()->route('categories');
+        return redirect()->route('categories.index');
     }
 
     public function update(Request $request, int $id): RedirectResponse
@@ -43,12 +43,12 @@ class CategoryController extends Controller
         $category->fill($request->all());
         $category->save();
 
-        return redirect()->route('categories');
+        return redirect()->route('categories.index');
     }
 
-    public function delete(int $id): RedirectResponse
+    public function destroy(int $id): RedirectResponse
     {
         Category::destroy($id);
-        return redirect()->route('categories');
+        return redirect()->route('categories.index');
     }
 }

@@ -39,8 +39,8 @@
                                 {{ __('Categories') }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownCategory">
-                                <a class="dropdown-item" href="{{ route('categories') }}">{{ __('List categories') }}</a>
-                                <a class="dropdown-item" href="{{ route('category-create') }}">{{ __('New category') }}</a>
+                                <a class="dropdown-item" href="{{ route('categories.index') }}">{{ __('List categories') }}</a>
+                                <a class="dropdown-item" href="{{ route('categories.create') }}">{{ __('New category') }}</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -48,8 +48,8 @@
                                 {{ __('Products') }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProduct">
-                                <a class="dropdown-item" href="{{ route('products') }}">{{ __('List products') }}</a>
-                                <a class="dropdown-item" href="{{ route('product-create') }}">{{ __('New product') }}</a>
+                                <a class="dropdown-item" href="{{ route('products.index') }}">{{ __('List products') }}</a>
+                                <a class="dropdown-item" href="{{ route('products.create') }}">{{ __('New product') }}</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -57,8 +57,8 @@
                                 {{ __('Coupons') }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownCoupon">
-                                <a class="dropdown-item" href="{{ route('coupons') }}">{{ __('List coupons') }}</a>
-                                <a class="dropdown-item" href="{{ route('coupon-create') }}">{{ __('New coupon') }}</a>
+                                <a class="dropdown-item" href="{{ route('coupons.index') }}">{{ __('List coupons') }}</a>
+                                <a class="dropdown-item" href="{{ route('coupons.create') }}">{{ __('New coupon') }}</a>
                             </div>
                         </li>
                     </ul>

@@ -29,7 +29,7 @@ class CouponController extends Controller
         $coupon->is_percentage = $request->exists('is_active');
         $coupon->save();
 
-        return redirect()->route('coupons');
+        return redirect()->route('coupons.index');
     }
 
     public function edit(int $id): View
@@ -47,13 +47,13 @@ class CouponController extends Controller
         $coupon->is_percentage = $request->exists('is_active');
         $coupon->save();
 
-        return redirect()->route('coupons');
+        return redirect()->route('coupons.index');
     }
 
     public function delete(int $id): RedirectResponse
     {
         Coupon::destroy($id);
-        return redirect()->route('coupons');
+        return redirect()->route('coupons.index');
     }
 
     public function show(string $coupon): string|null

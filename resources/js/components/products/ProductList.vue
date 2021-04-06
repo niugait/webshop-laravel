@@ -20,7 +20,7 @@
                 <div v-for="(product, index) in products_with_discount" :key="index">
                     <product-show
                         :is_admin="is_admin"
-                        :route="route_update + '/' + product.id"
+                        :route="route_update.replace('#', product.id)"
                         :route_show="route_show + '/' + product.id"
                         :coupon_route="coupon_route"
                         :coupon_applied_list="coupon_applied"

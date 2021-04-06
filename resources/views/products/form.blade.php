@@ -10,7 +10,7 @@
                         {{ __('Products') }}
                         </span>
                         @if(isset($product))
-                            <form action="{{ route('product-delete', $product->id) }}" method="POST">
+                            <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                                 <input type="hidden" name="_method" value="DELETE">
                                 @csrf
                                 <button type="submit" class="btn btn-outline-danger ml-4">
@@ -26,9 +26,9 @@
                             :categories="{{ $categories }}"
                             @if(isset($product))
                             :product="{{ $product }}"
-                            route="{{ route('product-update', $product->id) }}"
+                            route="{{ route('products.update', $product->id) }}"
                             @else
-                            route="{{ route('product-store') }}"
+                            route="{{ route('products.store') }}"
                             @endif
                         ></product-form>
                     </div>

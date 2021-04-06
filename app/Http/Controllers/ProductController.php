@@ -46,7 +46,7 @@ class ProductController extends Controller
         $category->fill($request->all());
         $category->save();
 
-        return redirect()->route('products');
+        return redirect()->route('products.index');
     }
 
     public function update(Request $request, int $id): RedirectResponse
@@ -55,13 +55,13 @@ class ProductController extends Controller
         $product->fill($request->all());
         $product->save();
 
-        return redirect()->route('products');
+        return redirect()->route('products.index');
     }
 
-    public function delete(int $id): RedirectResponse
+    public function destroy(int $id): RedirectResponse
     {
         Product::destroy($id);
-        return redirect()->route('products');
+        return redirect()->route('products.index');
     }
 
     public function getCategoriesList(): Collection|array

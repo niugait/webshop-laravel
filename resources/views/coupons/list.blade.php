@@ -33,10 +33,10 @@
                                         <td>{{ $coupon->discount }}</td>
                                         <td>{{ $coupon->expires_at }}</td>
                                         <td class="d-inline-flex float-right">
-                                            <a href="{{ route('coupon-edit', $coupon->id) }}" class="btn btn-warning">
+                                            <a href="{{ route('coupons.edit', $coupon->id) }}" class="btn btn-warning">
                                                 Edit
                                             </a>
-                                            <form action="{{ route('coupon-delete', $coupon->id) }}" method="POST">
+                                            <form action="{{ route('coupons.destroy', $coupon->id) }}" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 @csrf
                                                 <button type="submit" class="btn btn-outline-danger ml-4">

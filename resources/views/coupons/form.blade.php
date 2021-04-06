@@ -12,9 +12,9 @@
                             csrf="{{ csrf_token() }}"
                             @if(isset($coupon))
                             :coupon="{{ $coupon }}"
-                            route="{{ route('coupon-update', $coupon->id) }}"
+                            route="{{ route('coupons.update', $coupon->id) }}"
                             @else
-                            route="{{ route('coupon-store') }}"
+                            route="{{ route('coupons.store') }}"
                             @endif
                         ></coupon-form>
                     </div>

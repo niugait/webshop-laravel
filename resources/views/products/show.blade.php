@@ -6,9 +6,9 @@
             <div class="col-md-8">
                 <product-show
                     :is_admin="{{ json_encode(Auth::check() && Auth::user()->is_admin) }}"
-                    route="{{ route('product-update', $product->id) }}"
-                    route_show="{{ route('product', '') }}"
-                    coupon_route="{{ route('coupon-check', '') }}"
+                    route="{{ route('products.edit', $product->id) }}"
+                    route_show="{{ route('products.show', $product->id) }}"
+                    coupon_route="{{ route('coupons.check', '') }}"
                     csrf="{{ csrf_token() }}"
                     :product="{{ $product }}"
                 ></product-show>

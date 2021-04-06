@@ -12,9 +12,9 @@
                             csrf="{{ csrf_token() }}"
                             @if(isset($category))
                             :category="{{ $category }}"
-                            route="{{ route('category-update', $category->id) }}"
+                            route="{{ route('categories.update', $category->id) }}"
                             @else
-                            route="{{ route('category-store') }}"
+                            route="{{ route('categories.store') }}"
                             @endif
                         ></category-form>
                     </div>
