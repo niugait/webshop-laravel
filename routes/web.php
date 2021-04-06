@@ -24,6 +24,9 @@ Route::redirect('/', 'products');
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
+Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'show'])->name('product');
+Route::get('/coupon/{coupon}', [App\Http\Controllers\CouponController::class, 'show'])->name('coupon-check');
+
 Route::group([
     'prefix' => 'products',
     'middleware' => AUTH_ADMIN_PATH,

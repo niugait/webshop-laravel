@@ -33,6 +33,13 @@ class ProductController extends Controller
         ]);
     }
 
+    public function show(int $id): View
+    {
+        return view('products.show', [
+            'product' => Product::query()->findOrFail($id),
+        ]);
+    }
+
     public function store(Request $request): RedirectResponse
     {
         $category = new Product();

@@ -55,4 +55,11 @@ class CouponController extends Controller
         Coupon::destroy($id);
         return redirect()->route('coupons');
     }
+
+    public function show(string $coupon): string|null
+    {
+        return Coupon::query()
+            ->where('code', strtoupper($coupon))
+            ->where('is_active', '=', 1)->first();
+    }
 }

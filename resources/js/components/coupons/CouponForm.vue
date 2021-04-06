@@ -13,7 +13,7 @@
             <label for="code" class="col-md-4 col-form-label text-md-right">Code *</label>
 
             <div class="col-md-6">
-                <input id="code" type="text" class="form-control" name="code" v-model="form.code" required autocomplete="code" autofocus>
+                <input id="code" type="text" class="form-control" name="code" v-model="form.code" @input="form.code = form.code.toUpperCase()" required autocomplete="code" autofocus>
             </div>
         </div>
         <div class="form-group row">
