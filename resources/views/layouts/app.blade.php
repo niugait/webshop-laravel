@@ -52,6 +52,15 @@
                                 <a class="dropdown-item" href="{{ route('product-create') }}">{{ __('New product') }}</a>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdownCoupon" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('Coupons') }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownCoupon">
+                                <a class="dropdown-item" href="{{ route('coupons') }}">{{ __('List coupons') }}</a>
+                                <a class="dropdown-item" href="{{ route('coupon-create') }}">{{ __('New coupon') }}</a>
+                            </div>
+                        </li>
                     </ul>
                 @endif
                     <!-- Right Side Of Navbar -->

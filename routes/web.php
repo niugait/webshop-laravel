@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 const CREATE_PATH = '/create';
 const EDIT_PATH = '/edit/{id}';
+const DELETE_PATH = '/delete/{id}';
 
 Route::redirect('/', 'products');
 
@@ -28,7 +29,7 @@ Route::group([
     Route::post(CREATE_PATH, [App\Http\Controllers\ProductController::class, 'store'])->name('product-store');
     Route::get(EDIT_PATH, [App\Http\Controllers\ProductController::class, 'edit'])->name('product-edit');
     Route::put(EDIT_PATH, [App\Http\Controllers\ProductController::class, 'update'])->name('product-update');
-    Route::delete('/delete/{id}', [App\Http\Controllers\ProductController::class, 'delete'])->name('product-delete');
+    Route::delete(DELETE_PATH, [App\Http\Controllers\ProductController::class, 'delete'])->name('product-delete');
 });
 
 Route::group([
@@ -40,5 +41,17 @@ Route::group([
     Route::post(CREATE_PATH, [App\Http\Controllers\CategoryController::class, 'store'])->name('category-store');
     Route::get(EDIT_PATH, [App\Http\Controllers\CategoryController::class, 'edit'])->name('category-edit');
     Route::put(EDIT_PATH, [App\Http\Controllers\CategoryController::class, 'update'])->name('category-update');
-    Route::delete('/delete/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('category-delete');
+    Route::delete(DELETE_PATH, [App\Http\Controllers\CategoryController::class, 'delete'])->name('category-delete');
+});
+
+Route::group([
+    'prefix' => 'coupons',
+    'middleware' => 'auth.admin',
+], function () {
+    Route::get('/', [App\Http\Controllers\CouponController::class, 'index'])->name('coupons');
+    Route::get(CREATE_PATH, [App\Http\Controllers\CouponController::class, 'create'])->name('coupon-create');
+    Route::post(CREATE_PATH, [App\Http\Controllers\CouponController::class, 'store'])->name('coupon-store');
+    Route::get(EDIT_PATH, [App\Http\Controllers\CouponController::class, 'edit'])->name('coupon-edit');
+    Route::put(EDIT_PATH, [App\Http\Controllers\CouponController::class, 'update'])->name('coupon-update');
+    Route::delete(DELETE_PATH, [App\Http\Controllers\CouponController::class, 'delete'])->name('coupon-delete');
 });
